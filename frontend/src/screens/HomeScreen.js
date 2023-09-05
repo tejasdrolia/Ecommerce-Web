@@ -1,16 +1,17 @@
 import { useEffect, useReducer, useState } from 'react';
+//import data from '../data';
 import axios from 'axios';
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
-// import data from '../data';
 
 const reducer = (state, action) => {
+  //useReducer() is a better hook when compared to useState()
   switch (action.type) {
     case 'FETCH_REQUEST':
-      return { ...state, loading: true };
+      return { ...state, loading: true }; //old state is retained only thing that is changed is loading if the case is 'FETCH_REQUEST'
     case 'FETCH_SUCCESS':
       return { ...state, products: action.payload, loading: false };
     case 'FETCH_FAIL':
@@ -21,13 +22,15 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
+  // const [products, setProducts] = useState([]); //defining product as a state variable which is updated with the help of setProducts method
   const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    //useReducer takes two arguments: a reducer function (reducer) and an initial state. In this case, the initial state is an object with products, loading, and error properties.
     products: [],
     loading: true,
     error: '',
   });
-  // const [products, setProducts] = useState([]);
   useEffect(() => {
+    // is called when page is refershed/rendered
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
@@ -37,14 +40,14 @@ function HomeScreen() {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
 
-      // setProducts(result.data);
+      //setProducts(result.data);
     };
     fetchData();
   }, []);
   return (
     <div>
       <Helmet>
-        <title>Amazona</title>
+        <title>Amazon</title>
       </Helmet>
       <h1>Featured Products</h1>
       <div className="products">

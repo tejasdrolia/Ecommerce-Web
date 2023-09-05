@@ -3,17 +3,18 @@ import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Rating from '../components/Rating';
+import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
+  //useReducer() is a better hook when compared to useState()
   switch (action.type) {
     case 'FETCH_REQUEST':
-      return { ...state, loading: true };
+      return { ...state, loading: true }; //old state is retained only thing that is changed is loading if the case is 'FETCH_REQUEST'
     case 'FETCH_SUCCESS':
       return { ...state, product: action.payload, loading: false };
     case 'FETCH_FAIL':
@@ -26,13 +27,14 @@ const reducer = (state, action) => {
 function ProductScreen() {
   const params = useParams();
   const { slug } = params;
-
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+    //useReducer takes two arguments: a reducer function (reducer) and an initial state. In this case, the initial state is an object with products, loading, and error properties.
     product: [],
     loading: true,
     error: '',
   });
   useEffect(() => {
+    // is called when page is refershed/rendered
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
@@ -41,10 +43,11 @@ function ProductScreen() {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
+
+      //setProducts(result.data);
     };
     fetchData();
   }, [slug]);
-
   return loading ? (
     <div>Loading...</div>
   ) : error ? (
@@ -73,10 +76,9 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Pirce : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
             <ListGroup.Item>
-              Description:
-              <p>{product.description}</p>
+              Description : <p>{product.description}</p>
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -86,7 +88,7 @@ function ProductScreen() {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Row>
-                    <Col>Price:</Col>
+                    <Col>Prices:</Col>
                     <Col>${product.price}</Col>
                   </Row>
                 </ListGroup.Item>
@@ -102,7 +104,6 @@ function ProductScreen() {
                     </Col>
                   </Row>
                 </ListGroup.Item>
-
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
                     <div className="d-grid">
@@ -118,4 +119,5 @@ function ProductScreen() {
     </div>
   );
 }
+
 export default ProductScreen;
