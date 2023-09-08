@@ -5,12 +5,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { StoreProvider } from './Store';
+
+// <StoreProvider is used to keep data in global level?why do we need thus?
+//This is used to implement cart now data in cart should be same across all screens(Gloabal)
 
 ReactDOM.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <StoreProvider>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

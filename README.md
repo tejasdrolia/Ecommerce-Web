@@ -115,3 +115,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 12. Create Product Details Screen
     1. fetch product from backend
     2. create 3 columns for image, info and action
+13. Create Loading and Message component
+
+    1. create loading component
+    2. use spinner component
+    3. create message component
+    4. create utils.js to define getError function
+
+14. Implement Add To Cart
+15. Create React Context
+16. define reducer
+17. create store provider
+18. implement add to cart button click handler
