@@ -136,3 +136,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     Create 2 columns
     display items list
     create action column
+
+17. Complete Cart Screen
+    1. click handler for inc/dec item
+    2. click handler for remove item
+    3. click handler for checkout
