@@ -123,7 +123,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     4. create utils.js to define getError function
 
 14. Implement Add To Cart
-15. Create React Context
-16. define reducer
-17. create store provider
-18. implement add to cart button click handler
+    Create React Context
+    define reducer
+    create store provider
+    implement add to cart button click handler
+
+15. Complete Add To Cart
+    check exist item in the cart
+    check count in stock in backed
