@@ -131,3 +131,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 15. Complete Add To Cart
     check exist item in the cart
     check count in stock in backed
+
+16. Create Cart Screen
+    Create 2 columns
+    display items list
+    create action column
