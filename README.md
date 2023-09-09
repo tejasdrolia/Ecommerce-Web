@@ -169,3 +169,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     1.Create user model
     2.seed sample users
     3.create user routes
+
+22. Create Signin Backend API
+    1. create signin api(POST request wherein user will send their login details)
+    2. npm install jsonwebtoken
+    3. define generateToken
