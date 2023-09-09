@@ -138,6 +138,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     create action column
 
 17. Complete Cart Screen
+
     1. click handler for inc/dec item
     2. click handler for remove item
     3. click handler for checkout
+
+18. Create Signin Screen
+    1. create sign in form
+    2. add email and password
+    3. add signin button
