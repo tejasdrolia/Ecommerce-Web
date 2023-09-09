@@ -158,8 +158,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
        (We had set up both local as weel as cloud database)
 
 20. Seed Sample data to mongodb(Fun)
+
     1. create Product model(Here we will learn how to create a model)
     2. create User model
     3. create seed route
     4. use routr in server.js
     5. seed sample product
+
+21. Seed Sample Users
+    1.Create user model
+    2.seed sample users
+    3.create user routes

@@ -21,5 +21,5 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema); //The first argument 'Product' is a string that specifies the name of the collection in MongoDB where documents of this type will be stored.
 export default Product;
