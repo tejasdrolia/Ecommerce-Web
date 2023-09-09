@@ -150,8 +150,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     3. add signin button
 
 19. Connect to MongoDB database
+
     1. create atlas mongodb database
     2. install local mongodb database
     3. npm install mongoose
     4. connect to mongodb database
        (We had set up both local as weel as cloud database)
+
+20. Seed Sample data to mongodb(Fun)
+    1. create Product model(Here we will learn how to create a model)
+    2. create User model
+    3. create seed route
+    4. use routr in server.js
+    5. seed sample product
