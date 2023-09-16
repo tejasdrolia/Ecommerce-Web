@@ -183,6 +183,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     3. show user name in header
 
 24. Create shipping screen
+
     1. create form inputs
     2. handle save shipping address
     3. add checkout wizard bar(Fun)
+
+25. Create Sign Up Screen
+
+    1. create input forms
+    2. handle submit
+    3. create backend api
+
+26. Implement Select Payment Method Screen
+    1. create input forms
+    2. handle submit
