@@ -14,3 +14,21 @@ export const generateToken = (user) => {
     }
   );
 };
+
+export const isAuth = (req, res, next) => {
+  // is Auth is a middleware to authenticate requests based on bearer token
+  const authorization = req.headers.authorization; //Getting token from headers
+  if (authorization) {
+    const token = authorization.slice(7, authorization.length); // Bearer XXXXXX (starting from index 7)
+    jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
+      if (err) {
+        res.status(401).send({ message: 'Invalid Token' });
+      } else {
+        req.user = decode;
+        next();
+      }
+    });
+  } else {
+    res.status(401).send({ message: 'No Token' });
+  }
+};
